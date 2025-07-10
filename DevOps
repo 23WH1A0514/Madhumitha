@@ -1,1 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unique Airline Registration Form</title>
+<style>
+  :root {
+    --main-bg: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --card-bg: rgba(255 255 255 / 0.12);
+    --input-bg: rgba(255 255 255 / 0.2);
+    --input-focus-bg: rgba(255 255 255 / 0.4);
+    --text-color: #ffffff;
+    --accent-color: #ffba08;
+    --border-radius: 12px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--main-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  .form-wrapper {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem 3rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem 1.5rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="number"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    resize: vertical;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #ddd;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    background: var(--input-focus-bg);
+  }
+  textarea {
+    min-height: 80px;
+  }
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  button[type="submit"] {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: var(--accent-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: #111;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  button[type="submit"]:hover {
+    background: #ffca3a;
+    transform: scale(1.05);
+  }
+  /* Responsive scroll for smaller viewports */
+  @media (max-width: 500px) {
+    .form-wrapper {
+      padding: 1rem 1.5rem;
+      max-height: 95vh;
+    }
+  }
+</style>
+</head>
+<body>
 
+<div class="form-wrapper">
+  <h1>SkyLink Airline Registration</h1>
+  <form>
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Jane
+Doe" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email"
+placeholder="you@example.com" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password"
+name="confirm-password" required />
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+      <option value="" disabled selected>Select gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Non-binary</option>
+      <option>Prefer not to say</option>
+    </select>
+
+    <label for="nationality">Nationality</label>
+    <input type="text" id="nationality" name="nationality"
+placeholder="Country" required />
+
+    <label for="passport">Passport Number</label>
+    <input type="text" id="passport" name="passport"
+placeholder="A1234567" required />
+
+    <label for="ffn">Frequent Flyer Number (Optional)</label>
+    <input type="text" id="ffn" name="ffn" placeholder="123456789" />
+
+    <label for="mood">Travel Mood Today</label>
+    <select id="mood" name="mood" required>
+      <option value="" disabled selected>Select your mood</option>
+      <option>Happy</option>
+      <option>Anxious</option>
+      <option>Adventurous</option>
+      <option>Relaxed</option>
+      <option>Sleepy</option>
+    </select>
+
+    <label for="language">Preferred Language</label>
+    <select id="language" name="language" required>
+      <option value="" disabled selected>Select language</option>
+      <option>English</option>
+      <option>Spanish</option>
+      <option>French</option>
+      <option>German</option>
+      <option>Chinese</option>
+      <option>Arabic</option>
+      <option>Other</option>
+    </select>
+
+    <label for="meal">Meal Preference</label>
+    <select id="meal" name="meal" required>
+      <option value="" disabled selected>Select meal preference</option>
+      <option>Vegetarian</option>
+      <option>Vegan</option>
+      <option>Gluten-Free</option>
+      <option>Halal</option>
+      <option>Kosher</option>
+      <option>No Preference</option>
+    </select>
+
+    <label for="seat">Seat Preference</label>
+    <select id="seat" name="seat" required>
+      <option value="" disabled selected>Select seat type</option>
+      <option>Window</option>
+      <option>Aisle</option>
+      <option>Middle</option>
+    </select>
+
+    <label for="companion">Flight Companion Preference</label>
+    <select id="companion" name="companion" required>
+      <option value="" disabled selected>Select companion preference</option>
+      <option>Quiet</option>
+      <option>Chatty</option>
+      <option>No Preference</option>
+    </select>
+
+    <label for="assistance">Special Assistance Required?</label>
+    <select id="assistance" name="assistance" required>
+      <option value="" disabled selected>Select assistance type</option>
+      <option>None</option>
+      <option>Wheelchair</option>
+      <option>Hearing</option>
+      <option>Visual</option>
+    </select>
+
+    <label for="pet">Are you traveling with a pet?</label>
+    <select id="pet" name="pet" required>
+      <option value="" disabled selected>Select an option</option>
+      <option>No</option>
+      <option>Yes - Dog</option>
+      <option>Yes - Cat</option>
+      <option>Yes - Other</option>
+    </select>
+
+    <label for="cabin">Preferred Cabin Class</label>
+    <select id="cabin" name="cabin" required>
+      <option value="" disabled selected>Select cabin class</option>
+      <option>Economy</option>
+      <option>Premium Economy</option>
+      <option>Business</option>
+      <option>First</option>
+    </select>
+
+    <label for="purpose">Frequent Travel Purpose</label>
+    <select id="purpose" name="purpose" required>
+      <option value="" disabled selected>Select purpose</option>
+      <option>Business</option>
+      <option>Leisure</option>
+      <option>Family</option>
+      <option>Other</option>
+    </select>
+
+    <label for="emergency-name">Emergency Contact Name</label>
+    <input type="text" id="emergency-name" name="emergency-name"
+placeholder="John Doe" required />
+
+    <label for="emergency-phone">Emergency Contact Phone</label>
+    <input type="text" id="emergency-phone" name="emergency-phone"
+placeholder="+1 234 567 8901" required />
+
+    <label for="checkin">Preferred Check-in Method</label>
+    <select id="checkin" name="checkin" required>
+      <option value="" disabled selected>Select check-in</option>
+      <option>Online</option>
+      <option>Airport Kiosk</option>
+      <option>Counter</option>
+    </select>
+
+    <label for="boarding">Preferred Boarding Time</label>
+    <select id="boarding" name="boarding" required>
+      <option value="" disabled selected>Select boarding time</option>
+      <option>Early</option>
+      <option>Standard</option>
+      <option>Late</option>
+    </select>
+
+    <label for="insurance">Travel Insurance Required?</label>
+    <select id="insurance" name="insurance" required>
+      <option value="" disabled selected>Select insurance option</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <label for="avatar">Upload Avatar (Optional)</label>
+    <input type="file" id="avatar" name="avatar" accept="image/*" />
+
+    <label for="color-theme">Preferred Color Theme</label>
+    <select id="color-theme" name="color-theme" required>
+      <option value="" disabled selected>Select color theme</option>
+      <option>Sky Blue</option>
+      <option>Sunset Orange</option>
+      <option>Ocean Green</option>
+      <option>Cloudy White</option>
+      <option>Galaxy Purple</option>
+    </select>
+
+    <label for="payment">Preferred Payment Method</label>
+    <select id="payment" name="payment" required>
+      <option value="" disabled selected>Select payment method</option>
+      <option>Credit Card</option>
+      <option>PayPal</option>
+      <option>Crypto</option>
+      <option>Other</option>
+    </select>
+
+    <div class="checkbox-group full-width">
+      <input type="checkbox" id="terms" name="terms" required />
+      <label for="terms">I agree to SkyLink’s Terms and Privacy Policy</label>
+    </div>
+
+    <div class="checkbox-group full-width">
+      <input type="checkbox" id="marketing" name="marketing" />
+      <label for="marketing">Subscribe to marketing emails</label>
+    </div>
+
+    <label for="referral">How did you hear about us?</label>
+    <select id="referral" name="referral" required>
+      <option value="" disabled selected>Select an option</option>
+      <option>Friend</option>
+      <option>Social Media</option>
+      <option>Advertisement</option>
+      <option>Other</option>
+    </select>
+
+    <label for="notes" class="full-width">Additional Notes or Requests</label>
+    <textarea id="notes" name="notes" placeholder="Anything we should
+know?" class="full-width"></textarea>
+
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+
+</body>
+</html>
+
+	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unique Airline Registration Form</title>
+<style>
+  :root {
+    --main-bg: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --card-bg: rgba(255 255 255 / 0.12);
+    --input-bg: rgba(255 255 255 / 0.2);
+    --input-focus-bg: rgba(255 255 255 / 0.4);
+    --text-color: #ffffff;
+    --accent-color: #ffba08;
+    --border-radius: 12px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--main-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  .form-wrapper {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem 3rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem 1.5rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="number"],
+  input[type="file"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    resize: vertical;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #ddd;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    background: var(--input-focus-bg);
+  }
+  textarea {
+    min-height: 80px;
+  }
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  button[type="submit"] {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: var(--accent-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: #111;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  button[type="submit"]:hover {
+    background: #ffca3a;
+    transform: scale(1.05);
+  }
+  /* Responsive scroll for smaller viewports */
+  @media (max-width: 500px) {
+    .form-wrapper {
+      padding: 1rem 1.5rem;
+      max-height: 95vh;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="form-wrapper">
+  <h1>SkyLink Airline Registration</h1>
+  <form>
+    <label for="fullname">Full Name</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Jane
+Doe" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email"
+placeholder="you@example.com" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="confirm-password"
+name="confirm-password" required />
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" required>
+      <option value="" disabled selected>Select gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Non-binary</option>
+      <option>Prefer not to say</option>
+    </select>
+
+    <label for="nationality">Nationality</label>
+    <input type="text" id="nationality" name="nationality"
+placeholder="Country" required />
+
+    <label for="passport">Passport Number</label>
+    <input type="text" id="passport" name="passport"
+placeholder="A1234567" required />
+
+    <label for="ffn">Frequent Flyer Number (Optional)</label>
+    <input type="text" id="ffn" name="ffn" placeholder="123456789" />
+
+    <label for="mood">Travel Mood Today</label>
+    <select id="mood" name="mood" required>
+      <option value="" disabled selected>Select your mood</option>
+      <option>Happy</option>
+      <option>Anxious</option>
+      <option>Adventurous</option>
+      <option>Relaxed</option>
+      <option>Sleepy</option>
+    </select>
+
+    <label for="language">Preferred Language</label>
+    <select id="language" name="language" required>
+      <option value="" disabled selected>Select language</option>
+      <option>English</option>
+      <option>Spanish</option>
+      <option>French</option>
+      <option>German</option>
+      <option>Chinese</option>
+      <option>Arabic</option>
+      <option>Other</option>
+    </select>
+
+    <label for="meal">Meal Preference</label>
+    <select id="meal" name="meal" required>
+      <option value="" disabled selected>Select meal preference</option>
+      <option>Vegetarian</option>
+      <option>Vegan</option>
+      <option>Gluten-Free</option>
+      <option>Halal</option>
+      <option>Kosher</option>
+      <option>No Preference</option>
+    </select>
+
+    <label for="seat">Seat Preference</label>
+    <select id="seat" name="seat" required>
+      <option value="" disabled selected>Select seat type</option>
+      <option>Window</option>
+      <option>Aisle</option>
+      <option>Middle</option>
+    </select>
+
+    <label for="companion">Flight Companion Preference</label>
+    <select id="companion" name="companion" required>
+      <option value="" disabled selected>Select companion preference</option>
+      <option>Quiet</option>
+      <option>Chatty</option>
+      <option>No Preference</option>
+    </select>
+
+    <label for="assistance">Special Assistance Required?</label>
+    <select id="assistance" name="assistance" required>
+      <option value="" disabled selected>Select assistance type</option>
+      <option>None</option>
+      <option>Wheelchair</option>
+      <option>Hearing</option>
+      <option>Visual</option>
+    </select>
+
+    <label for="pet">Are you traveling with a pet?</label>
+    <select id="pet" name="pet" required>
+      <option value="" disabled selected>Select an option</option>
+      <option>No</option>
+      <option>Yes - Dog</option>
+      <option>Yes - Cat</option>
+      <option>Yes - Other</option>
+    </select>
+
+    <label for="cabin">Preferred Cabin Class</label>
+    <select id="cabin" name="cabin" required>
+      <option value="" disabled selected>Select cabin class</option>
+      <option>Economy</option>
+      <option>Premium Economy</option>
+      <option>Business</option>
+      <option>First</option>
+    </select>
+
+    <label for="purpose">Frequent Travel Purpose</label>
+    <select id="purpose" name="purpose" required>
+      <option value="" disabled selected>Select purpose</option>
+      <option>Business</option>
+      <option>Leisure</option>
+      <option>Family</option>
+      <option>Other</option>
+    </select>
+
+    <label for="emergency-name">Emergency Contact Name</label>
+    <input type="text" id="emergency-name" name="emergency-name"
+placeholder="John Doe" required />
+
+    <label for="emergency-phone">Emergency Contact Phone</label>
+    <input type="text" id="emergency-phone" name="emergency-phone"
+placeholder="+1 234 567 8901" required />
+
+    <label for="checkin">Preferred Check-in Method</label>
+    <select id="checkin" name="checkin" required>
+      <option value="" disabled selected>Select check-in</option>
+      <option>Online</option>
+      <option>Airport Kiosk</option>
+      <option>Counter</option>
+    </select>
+
+    <label for="boarding">Preferred Boarding Time</label>
+    <select id="boarding" name="boarding" required>
+      <option value="" disabled selected>Select boarding time</option>
+      <option>Early</option>
+      <option>Standard</option>
+      <option>Late</option>
+    </select>
+
+    <label for="insurance">Travel Insurance Required?</label>
+    <select id="insurance" name="insurance" required>
+      <option value="" disabled selected>Select insurance option</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <label for="avatar">Upload Avatar (Optional)</label>
+    <input type="file" id="avatar" name="avatar" accept="image/*" />
+
+    <label for="color-theme">Preferred Color Theme</label>
+    <select id="color-theme" name="color-theme" required>
+      <option value="" disabled selected>Select color theme</option>
+      <option>Sky Blue</option>
+      <option>Sunset Orange</option>
+      <option>Ocean Green</option>
+      <option>Cloudy White</option>
+      <option>Galaxy Purple</option>
+    </select>
+
+    <label for="payment">Preferred Payment Method</label>
+    <select id="payment" name="payment" required>
+      <option value="" disabled selected>Select payment method</option>
+      <option>Credit Card</option>
+      <option>PayPal</option>
+      <option>Crypto</option>
+      <option>Other</option>
+    </select>
+
+    <div class="checkbox-group full-width">
+      <input type="checkbox" id="terms" name="terms" required />
+      <label for="terms">I agree to SkyLink’s Terms and Privacy Policy</label>
+    </div>
+
+    <div class="checkbox-group full-width">
+      <input type="checkbox" id="marketing" name="marketing" />
+      <label for="marketing">Subscribe to marketing emails</label>
+    </div>
+
+    <label for="referral">How did you hear about us?</label>
+    <select id="referral" name="referral" required>
+      <option value="" disabled selected>Select an option</option>
+      <option>Friend</option>
+      <option>Social Media</option>
+      <option>Advertisement</option>
+      <option>Other</option>
+    </select>
+
+    <label for="notes" class="full-width">Additional Notes or Requests</label>
+    <textarea id="notes" name="notes" placeholder="Anything we should
+know?" class="full-width"></textarea>
+
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+
+</body>
+</html>
